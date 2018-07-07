@@ -1,8 +1,10 @@
 package com.beyondcoding.codingcafe.barista.logic;
 
-import com.beyondcoding.codingcafe.barista.domain.Beverage;
-import com.beyondcoding.codingcafe.barista.domain.Order;
-import com.beyondcoding.codingcafe.barista.domain.Cup;
+import com.beyondcoding.codingcafe.barista.api.dto.Beverage;
+import com.beyondcoding.codingcafe.barista.api.dto.Cup;
+import com.beyondcoding.codingcafe.barista.api.dto.Order;
+import com.beyondcoding.codingcafe.barista.event.dispatcher.ProductDispatcher;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -12,18 +14,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class Baristas {
 
     private final Beverages beverages;
+
+    private final ProductDispatcher dispatcher;
 
     @Value("#{'${barista.names}'.split(',')}")
     private List<String> baristas;
 
     private List<Cup> preparedCups = new ArrayList<>();
-
-    public Baristas(Beverages beverages) {
-        this.beverages = beverages;
-    }
 
     public Optional<Cup> prepare(Order order) {
         Optional<Beverage> beverage = beverages.prepare(order.getProduct());
@@ -32,12 +33,13 @@ public class Baristas {
         }
         Cup cup = prepareCup(order, beverage);
         preparedCups.add(cup);
+        dispatcher.dispatch(cup);
         return Optional.of(cup);
     }
 
     private Cup prepareCup(Order order, Optional<Beverage> beverage) {
         Cup cup = new Cup();
-        cup.setCustomer(order.getCustomer());
+        cup.setTicket(order.getTicket());
         cup.setBarista(getNextBarista());
         cup.setBeverage(beverage.get());
         return cup;

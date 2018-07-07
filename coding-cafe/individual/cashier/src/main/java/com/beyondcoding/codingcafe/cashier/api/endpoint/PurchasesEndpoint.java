@@ -1,6 +1,6 @@
 package com.beyondcoding.codingcafe.cashier.api.endpoint;
 
-import com.beyondcoding.codingcafe.cashier.api.dto.Purchase;
+import com.beyondcoding.codingcafe.cashier.event.dto.Purchase;
 import com.beyondcoding.codingcafe.cashier.logic.PurchaseService;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Ticket;
 import lombok.RequiredArgsConstructor;

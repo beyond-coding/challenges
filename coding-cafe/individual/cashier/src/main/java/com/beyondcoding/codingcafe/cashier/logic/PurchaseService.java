@@ -1,7 +1,6 @@
 package com.beyondcoding.codingcafe.cashier.logic;
 
-import com.beyondcoding.codingcafe.cashier.api.dto.Purchase;
-import com.beyondcoding.codingcafe.cashier.event.dto.Order;
+import com.beyondcoding.codingcafe.cashier.event.dto.Purchase;
 import com.beyondcoding.codingcafe.cashier.event.dispatcher.Dispatchers;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Ticket;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +14,6 @@ public class PurchaseService {
 
     private final TicketService ticketService;
 
-    private final OrderService orderService;
-
     private final Dispatchers dispatchers;
 
     public List<Ticket> findTickets() {
@@ -25,8 +22,7 @@ public class PurchaseService {
 
     public Ticket process(Purchase purchase) {
         Ticket ticket = ticketService.process(purchase);
-        List<Order> orders = orderService.from(ticket);
-        dispatchers.dispatch(orders);
+        dispatchers.dispatch(ticket);
         return ticket;
     }
 }

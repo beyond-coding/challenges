@@ -25,13 +25,13 @@ public class ProductService {
 
     public List<Product> from(List<String> productNames) {
         return productNames.stream()
-                .map(this::from)
+                .map(this::toProduct)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toList());
     }
 
-    private Optional<Product> from(String productName) {
+    private Optional<Product> toProduct(String productName) {
         return products.stream()
                 .filter(e -> e.getName().equalsIgnoreCase(productName))
                 .map(this::copy)

@@ -1,7 +1,7 @@
 package com.beyondcoding.codingcafe.barista.endpoint;
 
-import com.beyondcoding.codingcafe.barista.domain.Cup;
-import com.beyondcoding.codingcafe.barista.domain.Order;
+import com.beyondcoding.codingcafe.barista.api.dto.Cup;
+import com.beyondcoding.codingcafe.barista.api.dto.Order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,23 +20,23 @@ public class OrdersEndpointTest {
 
     @Test
     public void placeWithPathVariables() {
-        Cup cup = restTemplate.getForObject("/orders/espresso/Timmy", Cup.class);
+        Cup cup = restTemplate.getForObject("/orders/macchiato/1234", Cup.class);
 
-        assertEquals("Timmy", cup.getCustomer());
+        assertEquals(new Long(1234), cup.getTicket());
         assertEquals("Sarah", cup.getBarista());
-        assertEquals("espresso", cup.getBeverage().getName());
+        assertEquals("macchiato", cup.getBeverage().getName());
     }
 
     @Test
     public void placeWithRequestBody() {
         Order order = new Order();
-        order.setCustomer("Timmy");
-        order.setProduct("Espresso");
+        order.setTicket(1234l);
+        order.setProduct("macchiato");
 
         Cup cup = restTemplate.postForObject("/orders", order, Cup.class);
 
-        assertEquals("Timmy", cup.getCustomer());
+        assertEquals(new Long(1234), cup.getTicket());
         assertEquals("Sarah", cup.getBarista());
-        assertEquals("espresso", cup.getBeverage().getName());
+        assertEquals("macchiato", cup.getBeverage().getName());
     }
 }
