@@ -25,10 +25,6 @@ spring:
         foodstuffs:
           destination: codingcafe.order.foodstuff
           content-type: application/json
-#        menu:
-#          destination: menu
-#          content-type: application/json
-#          group: waiters
 
 server:
-  port: 9000
+  port: 9100

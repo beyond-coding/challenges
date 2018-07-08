@@ -14,14 +14,14 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-public class BeveragesTest {
+public class BeverageServiceTest {
 
     @Autowired
-    private Beverages beverages;
+    private BeverageService beverageService;
 
     @Test
     public void testFindAll() {
-        List<Beverage> all = beverages.findAll();
+        List<Beverage> all = beverageService.findAll();
         assertEquals(3, all.size());
 
         assertContains("capuccino", all);

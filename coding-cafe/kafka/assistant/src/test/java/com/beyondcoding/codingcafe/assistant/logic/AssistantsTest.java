@@ -2,7 +2,7 @@ package com.beyondcoding.codingcafe.assistant.logic;
 
 import com.beyondcoding.codingcafe.assistant.api.dto.Order;
 import com.beyondcoding.codingcafe.assistant.api.dto.Plate;
-import com.beyondcoding.codingcafe.assistant.event.PlateDispatcher;
+import com.beyondcoding.codingcafe.assistant.api.event.ProductDispatcher;
 import com.beyondcoding.codingcafe.assistant.persistence.repository.FoodstuffRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +32,7 @@ public class AssistantsTest {
     private Counter counter;
 
     @SpyBean
-    private PlateDispatcher dispatcher;
+    private ProductDispatcher dispatcher;
 
     @Autowired
     private FoodstuffRepository foodstuffRepository;

@@ -1,4 +1,4 @@
-package com.beyondcoding.codingcafe.assistant.event.dto;
+package com.beyondcoding.codingcafe.barista.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

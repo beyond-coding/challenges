@@ -1,4 +1,4 @@
-package com.beyondcoding.codingcafe.cashier.api.endpoint;
+package com.beyondcoding.codingcafe.cashier.api.rest;
 
 import com.beyondcoding.codingcafe.cashier.event.dto.Purchase;
 import com.beyondcoding.codingcafe.cashier.logic.PurchaseService;

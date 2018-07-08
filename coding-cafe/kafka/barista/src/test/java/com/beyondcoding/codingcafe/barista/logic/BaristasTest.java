@@ -2,7 +2,7 @@ package com.beyondcoding.codingcafe.barista.logic;
 
 import com.beyondcoding.codingcafe.barista.api.dto.Cup;
 import com.beyondcoding.codingcafe.barista.api.dto.Order;
-import com.beyondcoding.codingcafe.barista.event.dispatcher.ProductDispatcher;
+import com.beyondcoding.codingcafe.barista.api.event.ProductDispatcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

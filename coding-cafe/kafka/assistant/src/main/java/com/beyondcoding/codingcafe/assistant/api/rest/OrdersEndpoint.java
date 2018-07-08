@@ -1,4 +1,4 @@
-package com.beyondcoding.codingcafe.assistant.api.endpoint;
+package com.beyondcoding.codingcafe.assistant.api.rest;
 
 import com.beyondcoding.codingcafe.assistant.api.dto.Order;
 import com.beyondcoding.codingcafe.assistant.api.dto.Plate;

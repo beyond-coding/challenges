@@ -3,7 +3,7 @@ package com.beyondcoding.codingcafe.barista.logic;
 import com.beyondcoding.codingcafe.barista.api.dto.Beverage;
 import com.beyondcoding.codingcafe.barista.api.dto.Cup;
 import com.beyondcoding.codingcafe.barista.api.dto.Order;
-import com.beyondcoding.codingcafe.barista.event.dispatcher.ProductDispatcher;
+import com.beyondcoding.codingcafe.barista.api.event.ProductDispatcher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class Baristas {
 
-    private final Beverages beverages;
+    private final BeverageService beverageService;
 
     private final ProductDispatcher dispatcher;
 
@@ -27,7 +27,7 @@ public class Baristas {
     private List<Cup> preparedCups = new ArrayList<>();
 
     public Optional<Cup> prepare(Order order) {
-        Optional<Beverage> beverage = beverages.prepare(order.getProduct());
+        Optional<Beverage> beverage = beverageService.prepare(order.getProduct());
         if (!beverage.isPresent()) {
             return Optional.empty();
         }

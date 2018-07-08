@@ -1,4 +1,4 @@
-package com.beyondcoding.codingcafe.barista.api.endpoint;
+package com.beyondcoding.codingcafe.barista.api.rest;
 
 import com.beyondcoding.codingcafe.barista.api.dto.Cup;
 import com.beyondcoding.codingcafe.barista.api.dto.Order;

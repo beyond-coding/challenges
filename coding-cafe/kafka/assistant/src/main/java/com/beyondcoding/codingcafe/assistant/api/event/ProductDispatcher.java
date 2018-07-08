@@ -1,13 +1,20 @@
-package com.beyondcoding.codingcafe.assistant.event.dispatcher;
+package com.beyondcoding.codingcafe.assistant.api.event;
 
 import com.beyondcoding.codingcafe.assistant.api.dto.Plate;
-import com.beyondcoding.codingcafe.assistant.event.dto.Product;
+import com.beyondcoding.codingcafe.assistant.api.dto.Product;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
 @Log
+@RequiredArgsConstructor
 public class ProductDispatcher {
+
+    private final MessageChannel products;
 
     public void dispatch(Plate order) {
         Product product = parse(order);
@@ -23,5 +30,8 @@ public class ProductDispatcher {
 
     private void dispatch(Product product) {
         log.info("Dispatching " + product);
+        Message<Product> message = MessageBuilder.withPayload(product)
+                .build();
+        products.send(message);
     }
 }

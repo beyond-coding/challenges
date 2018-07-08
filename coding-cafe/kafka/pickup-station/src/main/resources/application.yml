@@ -14,4 +14,4 @@ spring:
           content-type: application/json
 
 server:
-  port: 9003
+  port: 9103

@@ -5,13 +5,13 @@ import org.springframework.messaging.MessageChannel;
 
 public interface Binding {
 
-    @Output("purchases")
+    @Output
     MessageChannel purchases();
 
-    @Output("beverages")
+    @Output
     MessageChannel beverages();
 
-    @Output("foodstuffs")
+    @Output
     MessageChannel foodstuffs();
 
 }

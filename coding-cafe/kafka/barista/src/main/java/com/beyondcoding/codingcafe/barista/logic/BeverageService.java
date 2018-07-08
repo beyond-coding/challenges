@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class Beverages {
+public class BeverageService {
 
     @Value("#{'${beverage.kinds}'.split(',')}")
     private Set<String> beverages;

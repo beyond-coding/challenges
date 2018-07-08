@@ -16,14 +16,14 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class BeveragesEndpointTest {
+public class BeverageServiceEndpointTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
 
     @Test
     public void testGetBeverages() {
-        Beverage[] response = restTemplate.getForObject("/beverages", Beverage[].class);
+        Beverage[] response = restTemplate.getForObject("/orders", Beverage[].class);
         List<Beverage> beverages = Arrays.asList(response);
 
         assertEquals(3, beverages.size());
