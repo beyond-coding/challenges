@@ -1,4 +1,4 @@
-package com.beyondcoding.codingcafe.cashier.event.dto;
+package com.beyondcoding.codingcafe.cashier.api.dto;
 
 import com.beyondcoding.codingcafe.cashier.persistence.domain.ProductKind;
 import lombok.AllArgsConstructor;

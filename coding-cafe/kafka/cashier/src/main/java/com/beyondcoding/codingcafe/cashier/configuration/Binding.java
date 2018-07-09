@@ -1,4 +1,4 @@
-package com.beyondcoding.codingcafe.cashier.event.channel;
+package com.beyondcoding.codingcafe.cashier.configuration;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;

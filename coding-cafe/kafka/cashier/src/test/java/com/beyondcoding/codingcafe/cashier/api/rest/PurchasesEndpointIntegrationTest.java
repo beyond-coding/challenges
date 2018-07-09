@@ -1,7 +1,7 @@
 package com.beyondcoding.codingcafe.cashier.api.rest;
 
-import com.beyondcoding.codingcafe.cashier.event.dto.Purchase;
-import com.beyondcoding.codingcafe.cashier.event.notifier.Notifier;
+import com.beyondcoding.codingcafe.cashier.api.dto.Purchase;
+import com.beyondcoding.codingcafe.cashier.api.event.notifier.Notifier;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Ticket;
 import com.beyondcoding.codingcafe.cashier.persistence.repository.TicketRepository;
 import org.junit.Test;

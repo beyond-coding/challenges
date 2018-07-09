@@ -1,7 +1,7 @@
 package com.beyondcoding.codingcafe.cashier.logic;
 
-import com.beyondcoding.codingcafe.cashier.event.dto.Purchase;
-import com.beyondcoding.codingcafe.cashier.event.dispatcher.Dispatchers;
+import com.beyondcoding.codingcafe.cashier.api.dto.Purchase;
+import com.beyondcoding.codingcafe.cashier.api.event.dispatcher.Dispatchers;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Ticket;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

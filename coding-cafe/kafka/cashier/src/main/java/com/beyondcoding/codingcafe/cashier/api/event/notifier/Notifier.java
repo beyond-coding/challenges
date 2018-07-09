@@ -1,6 +1,6 @@
-package com.beyondcoding.codingcafe.cashier.event.notifier;
+package com.beyondcoding.codingcafe.cashier.api.event.notifier;
 
-import com.beyondcoding.codingcafe.cashier.event.dto.Purchase;
+import com.beyondcoding.codingcafe.cashier.api.dto.Purchase;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Product;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Ticket;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
-package com.beyondcoding.codingcafe.cashier.event.dispatcher;
+package com.beyondcoding.codingcafe.cashier.api.event.dispatcher;
 
-import com.beyondcoding.codingcafe.cashier.event.dto.Order;
+import com.beyondcoding.codingcafe.cashier.api.dto.Order;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.ProductKind;
 import lombok.RequiredArgsConstructor;
 

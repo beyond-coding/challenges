@@ -1,6 +1,6 @@
 package com.beyondcoding.codingcafe.cashier.logic;
 
-import com.beyondcoding.codingcafe.cashier.event.dto.Order;
+import com.beyondcoding.codingcafe.cashier.api.dto.Order;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Product;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.Ticket;
 import org.springframework.stereotype.Service;
