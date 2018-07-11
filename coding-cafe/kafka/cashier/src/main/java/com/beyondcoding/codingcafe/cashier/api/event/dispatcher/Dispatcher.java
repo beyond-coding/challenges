@@ -2,25 +2,18 @@ package com.beyondcoding.codingcafe.cashier.api.event.dispatcher;
 
 import com.beyondcoding.codingcafe.cashier.api.dto.Order;
 import com.beyondcoding.codingcafe.cashier.persistence.domain.ProductKind;
-import lombok.RequiredArgsConstructor;
 
-import javax.annotation.PostConstruct;
+import java.util.List;
 
-@RequiredArgsConstructor
 public abstract class Dispatcher {
 
-    private final ProductKind productKind;
+    protected abstract ProductKind getProductKind();
 
-    private final Dispatchers dispatchers;
-
-    @PostConstruct
-    private void init() {
-        dispatchers.register(this);
+    public void dispatch(List<Order> orders) {
+        orders.stream()
+                .filter(order -> getProductKind().equals(order.getKind()))
+                .forEach(this::dispatch);
     }
 
-    public abstract void dispatch(Order order);
-
-    ProductKind getProductKind() {
-        return productKind;
-    }
+    protected abstract void dispatch(Order order);
 }
